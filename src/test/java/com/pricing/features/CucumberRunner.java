@@ -1,4 +1,4 @@
-package com.pricing;
+package com.pricing.features;
 
 import io.cucumber.junit.Cucumber;
 import org.junit.runner.RunWith;

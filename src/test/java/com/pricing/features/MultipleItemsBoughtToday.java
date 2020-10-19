@@ -1,4 +1,4 @@
-package com.pricing;
+package com.pricing.features;
 
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 
 import java.time.LocalDate;
 
-public class StepDefinitions {
+public class MultipleItemsBoughtToday {
     private LocalDate timeFrame;
 
     @Given("the time frame is today")
