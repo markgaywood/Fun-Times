@@ -1,6 +1,9 @@
-package com.pricing.domain;
+package com.pricing.stock;
 
-import static com.pricing.domain.Pence.pence;
+import com.pricing.ordering.OrderedItem;
+import com.pricing.product.Pence;
+
+import static com.pricing.product.Pence.pence;
 
 @FunctionalInterface
 public interface BasketTotalCostCalculation {

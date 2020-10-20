@@ -1,10 +1,10 @@
-package com.pricing.domain;
+package com.pricing.ordering;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
-import static com.pricing.domain.Quantity.quantity;
+import static com.pricing.ordering.Quantity.quantity;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class QuantityTests {

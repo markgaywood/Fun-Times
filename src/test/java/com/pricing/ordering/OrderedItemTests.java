@@ -1,14 +1,15 @@
-package com.pricing.domain;
+package com.pricing.ordering;
 
+import com.pricing.stock.StockItem;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Optional;
 
-import static com.pricing.domain.OrderedItem.orderedItem;
-import static com.pricing.domain.Pence.pence;
-import static com.pricing.domain.Quantity.quantity;
-import static com.pricing.domain.Soup.soup;
+import static com.pricing.ordering.OrderedItem.orderedItem;
+import static com.pricing.product.Pence.pence;
+import static com.pricing.ordering.Quantity.quantity;
+import static com.pricing.stock.Soup.soup;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class OrderedItemTests {

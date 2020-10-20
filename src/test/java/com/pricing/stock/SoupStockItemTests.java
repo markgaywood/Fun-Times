@@ -1,11 +1,10 @@
-package com.pricing.domain;
+package com.pricing.stock;
 
 import org.junit.jupiter.api.Test;
 
-import static com.pricing.domain.Pence.pence;
-import static com.pricing.domain.ProductUnit.Bottle;
-import static com.pricing.domain.ProductUnit.Tin;
-import static com.pricing.domain.Soup.soup;
+import static com.pricing.product.Pence.pence;
+import static com.pricing.product.ProductUnit.Tin;
+import static com.pricing.stock.Soup.soup;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SoupStockItemTests {

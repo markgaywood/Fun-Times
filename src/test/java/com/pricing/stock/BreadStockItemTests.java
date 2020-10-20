@@ -1,10 +1,10 @@
-package com.pricing.domain;
+package com.pricing.stock;
 
 import org.junit.jupiter.api.Test;
 
-import static com.pricing.domain.Bread.bread;
-import static com.pricing.domain.Pence.pence;
-import static com.pricing.domain.ProductUnit.Loaf;
+import static com.pricing.stock.Bread.bread;
+import static com.pricing.product.Pence.pence;
+import static com.pricing.product.ProductUnit.Loaf;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BreadStockItemTests {

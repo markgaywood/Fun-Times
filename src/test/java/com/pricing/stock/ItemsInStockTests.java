@@ -1,12 +1,15 @@
-package com.pricing.domain;
+package com.pricing.stock;
 
+import com.pricing.stock.ItemsInStock;
+import com.pricing.stock.StockItem;
+import com.pricing.stock.StockItems;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.pricing.domain.Apples.apples;
-import static com.pricing.domain.Bread.bread;
-import static com.pricing.domain.Milk.milk;
-import static com.pricing.domain.Soup.soup;
+import static com.pricing.stock.Apples.apples;
+import static com.pricing.stock.Bread.bread;
+import static com.pricing.stock.Milk.milk;
+import static com.pricing.stock.Soup.soup;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ItemsInStockTests {

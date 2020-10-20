@@ -1,9 +1,11 @@
-package com.pricing.domain;
+package com.pricing.stock;
 
+import com.pricing.product.Pence;
+import com.pricing.product.Product;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 
-import static com.pricing.domain.ProductUnit.Tin;
+import static com.pricing.product.ProductUnit.Tin;
 
 @Value
 @EqualsAndHashCode(callSuper = true)

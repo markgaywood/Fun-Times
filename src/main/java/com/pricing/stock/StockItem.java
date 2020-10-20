@@ -1,5 +1,6 @@
-package com.pricing.domain;
+package com.pricing.stock;
 
+import com.pricing.product.Product;
 import lombok.Data;
 import lombok.Getter;
 

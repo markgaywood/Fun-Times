@@ -1,11 +1,11 @@
-package com.pricing.domain;
+package com.pricing.stock;
 
 import java.util.*;
 
-import static com.pricing.domain.Apples.apples;
-import static com.pricing.domain.Bread.bread;
-import static com.pricing.domain.Milk.milk;
-import static com.pricing.domain.Soup.soup;
+import static com.pricing.stock.Apples.apples;
+import static com.pricing.stock.Bread.bread;
+import static com.pricing.stock.Milk.milk;
+import static com.pricing.stock.Soup.soup;
 import static java.util.Collections.unmodifiableMap;
 import static java.util.stream.Collectors.toMap;
 

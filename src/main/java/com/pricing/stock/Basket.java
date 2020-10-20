@@ -1,9 +1,9 @@
-package com.pricing.domain;
+package com.pricing.stock;
 
+import com.pricing.ordering.OrderedItem;
 import lombok.Builder;
 import lombok.Value;
 
-import java.util.Collections;
 import java.util.Set;
 
 import static java.util.Collections.unmodifiableSet;

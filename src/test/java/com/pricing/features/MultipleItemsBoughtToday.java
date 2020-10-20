@@ -1,28 +1,24 @@
 package com.pricing.features;
 
-import com.pricing.domain.Basket;
-import com.pricing.domain.OrderedItem;
-import com.pricing.domain.Pence;
+import com.pricing.stock.Basket;
+import com.pricing.ordering.OrderedItem;
+import com.pricing.product.Pence;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static com.pricing.domain.Basket.basket;
-import static com.pricing.domain.Bread.bread;
-import static com.pricing.domain.BasketTotalCostCalculation.BasketTotalCostCalculator.calculateBasketTotalCost;
-import static com.pricing.domain.OrderedItem.orderedItem;
-import static com.pricing.domain.Pence.pence;
-import static com.pricing.domain.Soup.soup;
-import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.toList;
+import static com.pricing.stock.Basket.basket;
+import static com.pricing.stock.Bread.bread;
+import static com.pricing.stock.BasketTotalCostCalculation.BasketTotalCostCalculator.calculateBasketTotalCost;
+import static com.pricing.ordering.OrderedItem.orderedItem;
+import static com.pricing.product.Pence.pence;
+import static com.pricing.stock.Soup.soup;
 import static java.util.stream.Collectors.toSet;
 import static org.assertj.core.api.Assertions.assertThat;
 

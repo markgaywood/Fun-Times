@@ -1,4 +1,4 @@
-package com.pricing.domain;
+package com.pricing.stock;
 
 import java.util.Optional;
 

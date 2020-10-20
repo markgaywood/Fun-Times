@@ -1,12 +1,14 @@
-package com.pricing.domain;
+package com.pricing.ordering;
 
+import com.pricing.product.Pence;
+import com.pricing.stock.StockItem;
 import lombok.Builder;
 import lombok.Value;
 
 import java.util.Optional;
 
-import static com.pricing.domain.Quantity.quantity;
-import static com.pricing.domain.Today.today;
+import static com.pricing.ordering.Quantity.quantity;
+import static com.pricing.ordering.Today.today;
 
 @Value
 @Builder
