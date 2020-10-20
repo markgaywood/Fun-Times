@@ -3,6 +3,7 @@ package com.pricing.domain;
 import java.util.*;
 
 import static com.pricing.domain.Bread.bread;
+import static com.pricing.domain.Milk.milk;
 import static com.pricing.domain.Soup.soup;
 import static java.util.Collections.unmodifiableMap;
 import static java.util.stream.Collectors.toMap;
@@ -12,6 +13,7 @@ public final class ItemsInStock implements StockItems {
         Set<StockItem> inStock = new HashSet<>();
         inStock.add(soup());
         inStock.add(bread());
+        inStock.add(milk());
 
         return loadItems(inStock);
     }

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.pricing.domain.Bread.bread;
+import static com.pricing.domain.Milk.milk;
 import static com.pricing.domain.Soup.soup;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,5 +28,12 @@ public class ItemsInStockTests {
         StockItem expectedItem = bread();
 
         assertThat(itemsInStock.findByName("Bread")).contains(expectedItem);
+    }
+
+    @Test
+    public void givenMilkIsAStockItem_whenLookedUp_thenStockItemIsFound() {
+        StockItem expectedItem = milk();
+
+        assertThat(itemsInStock.findByName("Milk")).contains(expectedItem);
     }
 }
