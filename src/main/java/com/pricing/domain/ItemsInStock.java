@@ -2,6 +2,7 @@ package com.pricing.domain;
 
 import java.util.*;
 
+import static com.pricing.domain.Apples.apples;
 import static com.pricing.domain.Bread.bread;
 import static com.pricing.domain.Milk.milk;
 import static com.pricing.domain.Soup.soup;
@@ -14,6 +15,7 @@ public final class ItemsInStock implements StockItems {
         inStock.add(soup());
         inStock.add(bread());
         inStock.add(milk());
+        inStock.add(apples());
 
         return loadItems(inStock);
     }

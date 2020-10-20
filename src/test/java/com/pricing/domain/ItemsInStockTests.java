@@ -3,6 +3,7 @@ package com.pricing.domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.pricing.domain.Apples.apples;
 import static com.pricing.domain.Bread.bread;
 import static com.pricing.domain.Milk.milk;
 import static com.pricing.domain.Soup.soup;
@@ -35,5 +36,12 @@ public class ItemsInStockTests {
         StockItem expectedItem = milk();
 
         assertThat(itemsInStock.findByName("Milk")).contains(expectedItem);
+    }
+
+    @Test
+    public void givenApplesIsAStockItem_whenLookedUp_thenStockItemIsFound() {
+        StockItem expectedItem = apples();
+
+        assertThat(itemsInStock.findByName("Apples")).contains(expectedItem);
     }
 }
