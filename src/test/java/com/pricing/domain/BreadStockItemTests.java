@@ -3,10 +3,11 @@ package com.pricing.domain;
 import org.junit.jupiter.api.Test;
 
 import static com.pricing.domain.Bread.bread;
+import static com.pricing.domain.Pence.pence;
 import static com.pricing.domain.ProductUnit.Loaf;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BreadStockItemTests implements InPence {
+public class BreadStockItemTests {
     @Test
     public void givenBreadIsAProduct_whenMadeAStockItem_thenItIsAStockItem() {
         StockItem actual = bread();
