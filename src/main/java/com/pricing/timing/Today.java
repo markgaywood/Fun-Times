@@ -1,4 +1,4 @@
-package com.pricing.ordering;
+package com.pricing.timing;
 
 import lombok.Value;
 
