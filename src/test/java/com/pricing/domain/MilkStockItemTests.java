@@ -6,7 +6,7 @@ import static com.pricing.domain.Milk.milk;
 import static com.pricing.domain.ProductUnit.Bottle;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MilkTests implements InPence {
+public class MilkStockItemTests implements InPence {
     @Test
     public void givenMilkIsAProduct_whenMadeAStockItem_thenItIsAStockItem() {
         StockItem actual = milk();

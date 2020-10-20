@@ -7,7 +7,7 @@ import static com.pricing.domain.ProductUnit.Tin;
 import static com.pricing.domain.Soup.soup;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SoupTests implements InPence {
+public class SoupStockItemTests implements InPence {
     @Test
     public void givenSoupIsAProduct_whenMadeAStockItem_thenItIsAStockItem() {
         StockItem actual = soup();
