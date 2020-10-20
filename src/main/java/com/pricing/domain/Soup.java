@@ -7,7 +7,7 @@ import static com.pricing.domain.ProductUnit.Tin;
 
 @Value
 @EqualsAndHashCode(callSuper = true)
-public final class Soup extends StockItem {
+public class Soup extends StockItem {
     public static final String NAME = "Soup";
 
     private static StockItem SOUP = new Soup();

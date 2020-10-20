@@ -11,4 +11,10 @@ public abstract class StockItem {
     protected StockItem(Product product) {
         this.product = product;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", product.getProductUnit().getLabel(),
+            product.getName());
+    }
 }
