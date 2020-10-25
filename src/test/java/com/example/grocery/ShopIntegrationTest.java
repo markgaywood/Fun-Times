@@ -38,7 +38,7 @@ public class ShopIntegrationTest {
     }
 
     @Test(timeout=5000)
-    public void shouldPrice_3soup_2bread_today() throws Exception {
+    public void shouldDiscount_3soup_2bread_today_by_40p() throws Exception {
         // given
         when(io.readLine(anyString(), any()))
                 .thenReturn("buy 3 soup")
@@ -54,7 +54,23 @@ public class ShopIntegrationTest {
     }
 
     @Test(timeout=5000)
-    public void shouldPrice_6apples_1milk_today() throws Exception {
+    public void shouldDiscount_6soup_2bread_today_by_80p() throws Exception {
+        // given
+        when(io.readLine(anyString(), any()))
+                .thenReturn("buy 6 soup")
+                .thenReturn("buy 2 bread")
+                .thenReturn("total")
+                .thenReturn("quit");
+
+        // when
+        shop.serve();
+
+        // then
+        verify(io).printf("Total purchases: %s%n", "4.70");
+    }
+
+    @Test(timeout=5000)
+    public void shouldDiscount_6apples_1milk_today() throws Exception {
         // given
         when(io.readLine(anyString(), any()))
                 .thenReturn("buy 6 apples")
@@ -70,7 +86,7 @@ public class ShopIntegrationTest {
     }
 
     @Test(timeout=5000)
-    public void shouldPrice_6apples_1milk_5daysTime() throws Exception {
+    public void shouldDiscount_6apples_1milk_5daysTime_by_10percent() throws Exception {
         // given
         when(timeService.today()).thenReturn(FIVE_DAYS_TIME);
         when(io.readLine(anyString(), any()))
@@ -87,7 +103,7 @@ public class ShopIntegrationTest {
     }
 
     @Test(timeout=5000)
-    public void shouldPrice_3apples_2soup_1bread_5daysTime() throws Exception {
+    public void shouldDiscount_3apples_2soup_1bread_5daysTime() throws Exception {
         // given
         when(timeService.today()).thenReturn(FIVE_DAYS_TIME);
         when(io.readLine(anyString(), any()))

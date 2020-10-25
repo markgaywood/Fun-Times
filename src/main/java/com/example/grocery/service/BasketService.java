@@ -2,6 +2,7 @@ package com.example.grocery.service;
 
 import com.example.grocery.vo.BasketItem;
 import com.example.grocery.vo.Product;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +11,10 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import static java.lang.String.CASE_INSENSITIVE_ORDER;
+import static java.lang.String.format;
 
 @Service
+@Log
 public class BasketService {
 
     private final Map<String, BasketItem> basketItems = new TreeMap<>(CASE_INSENSITIVE_ORDER);
@@ -24,7 +27,14 @@ public class BasketService {
 
     public BigDecimal priceUp() {
         BigDecimal total = basketItems.values().stream()
-            .map(item -> item.getProduct().getBasePrice().multiply(new BigDecimal(item.getQuantity())))
+            .map(item -> {
+                Product product = item.getProduct();
+                BigDecimal basePrice = product.getBasePrice();
+                int quantity = item.getQuantity();
+                BigDecimal value = basePrice.multiply(new BigDecimal(quantity));
+                log.info(format("%d %s at %s = %s", quantity, product.getName(), basePrice, value));
+                return value;
+            })
             .reduce(BigDecimal.ZERO, BigDecimal::add);
 
         BigDecimal discount = discountService.getCurrent()
