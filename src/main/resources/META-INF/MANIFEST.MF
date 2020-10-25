@@ -1,0 +1,4 @@
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Spring-Boot-Version: 2.3.4.RELEASE
+Main-Class: com.example.grocery.Application
