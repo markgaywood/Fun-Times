@@ -1,0 +1,113 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'jacoco'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+group = 'ford.funtimes'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:29.0-jre'
+    implementation 'org.apache.commons:commons-lang3:3.11'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    excludes: ['funtimes/command/**', 'funtimes/App**'])
+        }))
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.8
+            }
+        }
+
+        rule {
+            enabled = false
+            element = 'CLASS'
+            excludes = ['funtimes.App', 'funtimes.command.*']
+
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.8
+            }
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'funtimes.App'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+tasks.named("check") {
+    dependsOn(codeCoverageReport)
+}
+
+def sourcesPath = configurations.create("sourcesPath") {
+    visible = false
+    canBeResolved = true
+    canBeConsumed = false
+    extendsFrom(configurations.implementation)
+    attributes {
+        attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage, Usage.JAVA_RUNTIME))
+        attribute(Category.CATEGORY_ATTRIBUTE, objects.named(Category, Category.DOCUMENTATION))
+        attribute(DocsType.DOCS_TYPE_ATTRIBUTE, objects.named(DocsType, 'source-folders'))
+    }
+}
+
+// A resolvable configuration to collect JaCoCo coverage data
+def coverageDataPath = configurations.create("coverageDataPath") {
+    visible = false
+    canBeResolved = true
+    canBeConsumed = false
+    extendsFrom(configurations.implementation)
+    attributes {
+        attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage, Usage.JAVA_RUNTIME))
+        attribute(Category.CATEGORY_ATTRIBUTE, objects.named(Category, Category.DOCUMENTATION))
+        attribute(DocsType.DOCS_TYPE_ATTRIBUTE, objects.named(DocsType, 'jacoco-coverage-data'))
+    }
+}
+
+def codeCoverageReport = tasks.register('codeCoverageReport', JacocoReport) {
+    additionalClassDirs(configurations.runtimeClasspath)
+    additionalSourceDirs(sourcesPath.incoming.artifactView { lenient(true) }.files)
+    executionData(coverageDataPath.incoming.artifactView { lenient(true) }.files.filter { it.exists() })
+
+    reports {
+        // xml is usually used to integrate code coverage with
+        // other tools like SonarQube, Coveralls or Codecov
+        xml.enabled true
+
+        // HTML reports can be used to see code coverage
+        // without any external tools
+        html.enabled true
+    }
+}
