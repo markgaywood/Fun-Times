@@ -43,6 +43,7 @@ A local shop, Henry’s Grocery, has asked you to author an IT solution for them
 
 ## Hints
 ​
+- Use Java _ideally JDK 17_
 - Keep it simple
 - Add test cases, ideally using [TDD](https://en.wikipedia.org/wiki/Test-driven_development)
 - Use version control, preferably [Git](https://en.wikipedia.org/wiki/Git)
